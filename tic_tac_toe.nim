@@ -129,7 +129,7 @@ proc startGame*(this:Game): void=
                 else:
                     # Do a random move on an empty spot.
                     echo "Random move!"
-                    this.board.list[currentEmptySpots.rand()] = this.aiPlayer
+                    this.board.list[currentEmptySpots.sample()] = this.aiPlayer
             
             
         this.changePlayer()
@@ -164,7 +164,7 @@ proc cli*() =
             of "help", "h":
                 writeHelp()
                 return
-            of "aiplayer", "a":
+            of "ai", "a":
                 echo "AI Player: " & val
                 aiplayer = val
             of "level", "l":
